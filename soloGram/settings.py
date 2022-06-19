@@ -9,7 +9,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '0!vn8x1zjmn!n&n043*2_(#!tcsw1elhooz@ytiro*ilhtd$3a')
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
