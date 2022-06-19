@@ -1,6 +1,7 @@
 import os
 
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -10,7 +11,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '0!vn8x1zjmn!n&n043*2_(#!tcsw1elhooz@ytiro*ilhtd$3a')
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'soloGramProject']
+ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
@@ -89,3 +90,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = '/'
+
+import django_heroku 
+django_heroku.settings(locals())
