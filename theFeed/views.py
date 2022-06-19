@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Comment, Post, Album
 from .forms import CommentForm, CreateAlbumForm, EditAlbumForm, EditPostForm, PostForm
 from django.urls import reverse_lazy, reverse
+import requests
 
 def index(request):
     return render(request, 'index.html')
