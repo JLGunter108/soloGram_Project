@@ -168,10 +168,15 @@
     <nav class="navbar bg-transparent text-light">
         <div class="container">
             {% if user.is_authenticated %}
-            <a id="nava" style="animation: flicker 5.9s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{% url 'home' %}">soloGram</a> |
-            <a id="nava" style="animation: pulse 1.2s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{% url 'upload' %}">Upload</a> |
-            <a id="nava" style="animation: redflicker 1.9s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{% url 'logout' %}" >Logout</a> | 
-            <a id="nava" style="animation: pulse 1.9s infinite alternate; font-family: 'Pacifico'; color: white;" class="navbar-brand" href="{% url 'profile' request.user.id %}"><img src="{{ MEDIA_URL }}{{ request.user.profile.profile_pic.url }}" alt="" width="30" height="24">  {{ request.user.first_name }}</a>
+                <a id="nava" style="animation: flicker 5.9s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{% url 'home' %}">soloGram</a> |
+                <a id="nava" style="animation: pulse 1.2s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{% url 'upload' %}">Upload</a> |
+                <a id="nava" style="animation: redflicker 1.9s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{% url 'logout' %}" >Logout</a> | 
+                <a id="nava" style="animation: pulse 1.9s infinite alternate; font-family: 'Pacifico'; color: white;" class="navbar-brand" href="{% url 'profile' request.user.id %}">
+                {% if user.profile.profile_pic %}
+                    <img src="{{ MEDIA_URL }}{{ request.user.profile.profile_pic.url }}" alt="" width="30" height="24">  {{ request.user.first_name }}</a>
+                {% else %}
+                    <a  id="nava" style="animation: pulse 1.2s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{{ MEDIA_URL }}{{ request.user.profile.profile_pic.url }}">  {{ request.user.first_name }}</a>
+                {% endif %}
             {% else %}
             <a id="nava" style="animation: redflicker 1.5s infinite alternate; font-family: 'Pacifico';" class="nav-link" href="{% url 'login' %}">soloGram</a>
             {% endif %}
