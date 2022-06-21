@@ -1,1 +1,1 @@
-web: gunicorn soloGram.wsgi
+web: newrelic-admin run-program gunicorn soloGram.wsgi

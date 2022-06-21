@@ -8,3 +8,4 @@ tzdata==2022.1
 Gunicorn==20.1.0
 django-heroku
 requests
+newrelic
