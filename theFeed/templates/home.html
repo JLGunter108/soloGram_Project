@@ -11,8 +11,8 @@ soloGram
     <br><br><hr>
     {% for post in object_list %}
         <div>
-            <img class="rounded" src="{{ post.file.url }}" alt="post image" style="max-width:100%; height:auto;"><br><br>
-            <a  style="animation: flicker 5s infinite alternate; font-family: 'Pacifico';" class="btn btn-outline text-white-50" href="{% url 'post-details' post.pk %}">{{ post.title }}</a><br> <a style="color: white; text-decoration: none; font-family: 'Pacifico';" href="{% url 'profile' post.author.id %}">{{ post.author.first_name}} {{ post.author.last_name}}</a> <br> <small style="font-size:10px">{{ post.posted_on }}</small> <br>
+            <a href="{% url 'post-details' post.pk %}"><img class="rounded" src="{{ post.file.url }}" alt="post image" style="max-width:100%; height:auto;"></a><br><br>
+            <a style="animation: flicker 5s infinite alternate; font-family: 'Pacifico';" class="btn btn-outline text-white-50" href="{% url 'post-details' post.pk %}">{{ post.title }}</a><br> <a style="color: white; text-decoration: none; font-family: 'Pacifico';" href="{% url 'profile' post.author.id %}">{{ post.author.first_name}} {{ post.author.last_name}}</a> <br> <small style="font-size:10px">{{ post.posted_on }}</small> <br>
                 {% if user.id == post.author.id %}
                     <a style="animation: flicker 2.6s infinite alternate; font-family: 'Pacifico';" class="btn btn-outline" href="{% url 'edit_post' post.pk %}">Edit</a><br>
                 {% endif %}

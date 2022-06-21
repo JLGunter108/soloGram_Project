@@ -13,10 +13,9 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="btn btn-outline-light">Edit Album</button>
+                <button class="btn btn-outline-light">Confirm Changes</button>
             </form>
-        </div><br>
-        <a class="btn btn-outline-danger btn-sm" href="{% url 'album_delete' album.pk %}">Delete</a>
+        </div>
     </div>
 
     {% for post in album.author.post.all %}
@@ -40,6 +39,8 @@
             </form>
         </div>
     {% endfor %}
+    <hr>
+    <br><br><a class="btn btn-outline-danger btn-sm" href="{% url 'album_delete' album.pk %}">Delete Album</a>
 {% endif %}
 {% endif %}
 {% endblock %}

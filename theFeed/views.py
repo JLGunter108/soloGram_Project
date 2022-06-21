@@ -83,10 +83,10 @@ def AlbumAddView(request, pk):
     album = get_object_or_404(Album, id=request.POST.get('album_id'))
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     album.posts.add(post)
-    return HttpResponseRedirect(f'/album/{album.id}')
+    return HttpResponseRedirect(f'/album/{album.id}/edit')
 
 def AlbumRemoveView(request, pk):
     album = get_object_or_404(Album, id=request.POST.get('album_id'))
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     album.posts.remove(post)
-    return HttpResponseRedirect(f'/album/{album.id}')
+    return HttpResponseRedirect(f'/album/{album.id}/edit')

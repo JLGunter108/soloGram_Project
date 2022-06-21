@@ -42,9 +42,9 @@
     <h2 style="animation: flicker 2.3s infinite alternate; font-family: 'Pacifico';">Comments</h2>
     {% for comment in post.comments.all %}
     <div class="d-flex flex-column media border border-light m-5 p-2 rounded">
-        <img class="d-flex align-self-start mr-3 rounded" src="{{ MEDIA_URL }}{{ comment.author.profile.profile_pic.url }}" alt="profile picture" width="100px" height="auto">
+        <a href="{% url 'profile' comment.author.id %}"><img class="d-flex align-self-start mr-3 rounded" src="{{ MEDIA_URL }}{{ comment.author.profile.profile_pic.url }}" alt="profile picture" width="100px" height="auto"></a>
         <div class="d-flex flex-fill flex-column text-center media-body">
-            <h5 class="mt-0">{{ comment.author.first_name }} {{ comment.author.last_name }}</h5><br>
+            <a  style="animation: pulse 2.3s infinite alternate; font-family: 'Pacifico'; text-decoration: none; color: whitesmoke; margin-top: -3rem;" href="{% url 'profile' comment.author.id %}"><h5 class="mt-0">{{ comment.author.first_name }} {{ comment.author.last_name }}</h5></a><br>
             <p>{{ comment.body }}</p>
             {% if request.user.id == comment.author.id %}
             <form action="{% url 'remove_comment' comment.pk %}" method="POST">
@@ -55,7 +55,16 @@
             {% endif %}
         </div>
         <div class="d-flex justify-content-end">
-            <p>{{ comment.likes_count }} like(s)<span class="invisible">SPACER</span></p>
+            <a tabindex="0" class="btn btn-sm btn-outline-light" role="button"
+            data-toggle="popover" data-trigger="focus" title="Dismissible popover"
+            data-content="likes {{ Comment.likes.user.all }}">
+            {{ comment.likes_count }} like(s)
+            </a>
+            <a tabindex="0" class="btn btn-sm btn-danger" role="button"
+            data-toggle="popover" data-trigger="focus" title="Dismissible popover"
+            data-content="Click anywhere to dismiss this popover">
+            Dismissible popover
+            </a>
             <form class="d-flex justify-content-end" action="{% url 'comment_like' comment.pk %}" method="POST">
                 {% csrf_token %}
                 <button class="btn btn-outline-light btn-sm" type="submit" name="comment_id" value="{{ comment.id }}">Like</button>
