@@ -23,7 +23,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'theFeed',
     'comrades',
-    'annoying'
 ]
 
 MIDDLEWARE = [
