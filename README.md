@@ -3,5 +3,3 @@
 Final Solo project for Coding Dojo
 
 Built using Python and Django framework with SQLite DB.
-
-Live Demo @ https://guarded-wave-24451.herokuapp.com/
