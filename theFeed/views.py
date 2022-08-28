@@ -4,7 +4,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Comment, Post, Album
 from .forms import CommentForm, CreateAlbumForm, EditAlbumForm, EditPostForm, PostForm
 from django.urls import reverse_lazy, reverse
-import requests
 import os
 
 def index(request):
