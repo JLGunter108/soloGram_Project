@@ -31,25 +31,10 @@
             
     </style>
     <script>
-        async function getCatData1() {
-        var response = await fetch("https://api.thecatapi.com/v1/images/search?size=full");
-        var data1 = await response.json();
-        var html = data1[0]["url"];
-        document.getElementById("cat_image1").src = html;
-        return data1;
-        }
-    async function getCatData2() {
-        var response = await fetch("https://api.thecatapi.com/v1/images/search?size=full");
-        var data2 = await response.json();
-        var html = data2[0]["url"];
-        document.getElementById("cat_image2").src = html;
-        return data2;
-        }
-    console.log(getCatData1())
-    console.log(getCatData2())
+
     </script>
 </head>
-<body style="background-image: url('https://i.imgur.com/ilAQEm3.gif?noredirect'); background-size: 100%, 100%; background-position: center; background-repeat: no-repeat;  font-family: 'Pacifico';">
+<body style="background-color:rgb(21, 21, 21); background-image: url('https://i.imgur.com/ilAQEm3.gif?noredirect'); background-size: 100%, 100%; background-position: fixed; background-repeat: no-repeat;  font-family: 'Pacifico';">
     <main>
         <footer class="d-flex justify-content-between">
                 <img style="height: 25rem; max-width:25rem; margin:15px; border-radius:10px; box-shadow: -1px -1px 1px #d5d87d, 1px -1px 1px #b1d4b6, -1px 1px 1px #fa7785, 1px 1px 1px #53cbbf;" src="" id="cat_image1">
